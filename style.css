@@ -1,0 +1,566 @@
+/** transformovat na flexbox a přidat režim v telefonu, dodělat animace a grafiku **/
+/** dedělat informace a o nás donastavit CSS, u režimu v telefonu udělat nav bar ve crollu **/
+* {
+  color: var(--clr-text);
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "poppins", sans-serif;
+  text-decoration: none;
+}
+
+*::before,
+*::after {
+  font-family: FontAwesome;
+}
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css);
+:root {
+  --clr-text: black;
+  --clr-dark: rgb(245, 244, 244);
+  --clr-dark-2: rgb(238, 235, 235);
+  --clr-primary: #06a4f8;
+  --clr-secondary: rgb(255, 174, 0);
+  --clr-button: black;
+  --clr-button2: rgb(245, 244, 244);
+}
+[data-theme="dark"] {
+  --clr-text: rgb(214, 214, 214);
+  --clr-dark: #141414;
+  --clr-dark-2: rgb(31, 30, 30);
+  --clr-primary: #06a4f8;
+  --clr-secondary: rgb(255, 174, 0);
+  --clr-button: black;
+  --clr-button2: rgb(238, 235, 235);
+}
+.logo {
+}
+.telo {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  color: var(--clr-dark-2);
+}
+body {
+  background-color: var(--clr-dark-2);
+}
+nav {
+  display: flex;
+  align-items: center;
+  padding: 20px 8%;
+  background-color: var(--clr-dark);
+  box-shadow: 0 0 1rem var(--clr-primary);
+}
+.photo-prog {
+  position: relative;
+  width: 60px;
+  height: 140px;
+}
+nav .logo {
+  height: 7rem;
+  cursor: pointer;
+}
+nav ul {
+  flex: 1;
+  text-align: right;
+}
+nav ul li {
+  display: inline-block;
+  list-style: none;
+  margin: 0 20px;
+}
+nav ul li a:hover {
+  color: var(--clr-secondary);
+  transition: 1s;
+}
+nav ul li a {
+  text-decoration: none;
+}
+.text-con {
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+  align-items: start;
+  max-width: 600px;
+  color: var(--clr-text);
+  font-size: 1.5rem;
+  gap: 3rem;
+}
+.text-con h1 {
+  font-size: 3.5rem;
+  font-weight: 100;
+}
+#laptopfoto {
+  display: flex;
+  justify-content: space-around;
+}
+.text-con button {
+  text-decoration: none;
+  background: var(--clr-primary);
+  padding: 14px 40px;
+  display: inline-block;
+  font-size: 18px;
+  border-radius: 30px;
+  color: var(--clr-button);
+}
+.text-con button:hover {
+  background-color: var(--clr-secondary);
+  transition: 500ms;
+}
+#imageAndText {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation-name: slideUp;
+  animation-duration: 1.5s;
+  gap: 5rem;
+}
+
+.slozka {
+  padding: 10px 20px;
+  margin: 10px;
+  color: var(--clr-primary);
+  border-radius: 50px;
+}
+.slozka a,
+.slozka a:visited {
+  color: inherit;
+}
+.slozka:hover {
+  color: var(--clr-secondary);
+  background: rgba(0, 0, 255, 0);
+  transition: 500ms;
+}
+
+.outrow {
+  box-shadow: 0 0 1rem var(--clr-primary);
+  background-color: var(--clr-dark);
+  color: var(--clr-primary);
+  margin-top: 40%;
+  padding: 50px;
+}
+.outrow p {
+  text-align: center;
+}
+.fa-phone {
+  color: var(--clr-primary);
+}
+form {
+  text-align: center;
+}
+table {
+  width: 100%;
+}
+.kontaktphoto {
+  margin: 5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  margin-right: 12rem;
+  animation-name: slideUp;
+  animation-duration: 2s;
+}
+
+.udaje {
+  font-size: 1.2rem ;
+  left: 15rem;
+  text-decoration: none;
+  text-align: center;
+  position: absolute;
+  flex-direction: column;
+  margin-top: 7rem;
+  display: flex;
+  justify-content: space-around;
+  animation-name: fadeIn;
+  animation-duration: 2s;
+  align-items: left;
+}
+.e-mail {
+  color: var(--clr-text);
+}
+.teltka {
+  color: var(--clr-text);
+}
+.telzab {
+  color: var(--clr-text);
+}
+.ingtka {
+  color: var(--clr-text);
+}
+.ingzab {
+  color: var(--clr-text);
+}
+.current {
+  color: var(--clr-secondary);
+}
+/** doupravit formulář vzhledově **/
+form {
+  margin-inline: auto;
+  display: flex;
+  border: var(--clr-primary) 0.2rem solid;
+  border-radius: 1rem;
+  background-color: var(--clr-dark);
+  justify-content: center;
+  font-size: 1.5rem;
+  max-width: 40rem;
+  width: fit-content;
+  padding: 2rem;
+}
+
+.formin {
+  color: var(--clr-primary);
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.form-row-mul {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  width: 100%;
+}
+.form-row-single {
+  font-size: 1rem;
+}
+.form-input {
+  color: var(--clr-primary);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+input[type="text"],
+input[type="file"],
+input[type="email"],
+input[type="checkbox"],
+select {
+  background-color: var(--clr-dark);
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  width: 100%;
+}
+input[type="checkbox"] {
+  width: auto;
+  margin-right: 1rem;
+}
+.button {
+  text-decoration: none;
+  text-align: center;
+  background-color: var(--clr-primary);
+  display: inline-block;
+  color: var(--clr-text);
+  border-radius: 5rem;
+  padding: 0.4rem;
+  transition: background-color 0.5s;
+}
+.button:hover {
+  background: rgb(255, 167, 3);
+  transition: 1s;
+}
+.form-label {
+  color: var(--clr-primary);
+  user-select: none;
+  cursor: pointer;
+}
+.hidden {
+  visibility: hidden;
+  width: 0;
+  height: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+}
+
+#modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #1414149a;
+  z-index: 1000;
+}
+/* DO pozadí pridat obrázek*/
+.offer {
+  background-color: var(--clr-dark);
+  color: var(--clr-text);
+  border: var(--clr-primary) 0.3rem solid;
+  border-radius: 1rem;
+  max-width: 25rem;
+  height: 40rem;
+  text-align: center;
+  width: 100%;
+}
+
+.offer:hover {
+  border: var(--clr-secondary) 0.3rem solid;
+  border-radius: 1rem;
+  transition: 1s;
+}
+.alloffers {
+  animation: slideUp;
+  animation-duration: 1s;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  justify-content: space-around;
+  align-items: center;
+}
+@media screen and (max-width: 500px) {
+  .alloffers {
+    flex-direction: column;
+  }
+  .kontaktphoto{
+    display: none;
+  }
+  .udaje {
+    display: flex;
+    text-align: center;
+    position: relative;
+    max-width: 500px;
+    left: 0;
+    
+
+  }
+  .nav {
+    
+  }
+  .fa-solid{
+    height: 5rem;
+    width: 5rem;
+  }
+
+ 
+}
+
+.cenik {
+  margin-top: 2rem;
+  color: var(--clr-text);
+  border-radius: 5px;
+  column-width: initial;
+  animation-name: fadeIn;
+  animation-duration: 2s;
+}
+.cenik * {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+.offer button {
+  margin-top: 1.5rem;
+  text-decoration: none;
+  text-align: center;
+  background-color: var(--clr-secondary);
+  display: inline-block;
+  color: var(--clr-button);
+  border-radius: 5rem;
+  padding: 0.4rem;
+  transition: background-color 800ms;
+}
+.offer button:hover,
+.offer:hover button {
+  background: var(--clr-primary);
+  transition: 1s;
+}
+
+.onas {
+  color: var(--clr-text);
+  padding-left: 30px;
+  display: flex;
+  font-size: 3.5rem;
+}
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(7rem);
+  }
+  50% {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes jump {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.textonas {
+  display: flex;
+  justify-content: left;
+  justify-content: space-around;
+  font-size: 2rem;
+  color: var(--clr-text);
+}
+.text1 {
+  font-size: 1rem;
+}
+@media screen and (max-width: 500px) {
+  #laptopfoto {
+    display: none;
+  }
+  #imageAndText {
+    gap: 0;
+  }
+  .text-con {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+  .form-row-mul {
+    flex-direction: column;
+  }
+  .outrow {
+   display: flex;
+   align-items: flex;
+  }
+}
+
+input[type="checkbox"] {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  width: 2rem;
+  height: 1rem;
+  position: relative;
+  border-radius: 20px;
+  -webkit-appearance: none;
+  transition: 0.5s;
+  background: #c6c6c6;
+  outline: none;
+}
+input:checked[type="checkbox"] {
+  background-color: var(--clr-primary);
+}
+input[type="checkbox"]::before {
+  content: "";
+  font-size: 0.8rem;
+  color: black;
+  position: absolute;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 20px;
+  background: #fff;
+  top: 0;
+  left: 0;
+  transform: scale(1.2);
+
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.5s, left 0.5s;
+
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+input:checked[type="checkbox"]::before {
+  left: 1rem;
+}
+input[type="checkbox"].customebutton:checked {
+  background-color: var(--clr-secondary);
+}
+input[type="checkbox"].customebutton::before {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  content: "\f185";
+  color: rgb(252, 165, 4);
+}
+input[type="checkbox"].customebutton:checked::before {
+  content: "\f186";
+  position: absolute;
+  color: #06a4f8;
+}
+.dark-mode-toggle {
+  text-decoration: none;
+  text-align: center;
+  background-color: var(--clr-primary);
+  display: inline-block;
+  color: var(--clr-text);
+  border-radius: 5rem;
+  padding: 0.4rem;
+  transition: background-color 0.5s;
+}
+
+button {
+  border: 0;
+}
+
+.close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  min-width: fit-content;
+  min-height: fit-content;
+  border-radius: 100%;
+  z-index: 2000;
+  color: var(--clr-dark);
+  background-color: var(--clr-dark-2);
+}
+.close::before {
+  content: "\f00d";
+}
+.close:hover {
+  color: var(--clr-button2);
+  background-color: rgb(221, 16, 16);
+  transition: 150ms;
+}
+.display-none {
+  display: none !important;
+}
+.form-container {
+  animation: jump 600ms linear;
+  position: relative;
+}
+#klik{
+  border: #06a4f8;
+
+}
+.form-label[for="file"] { 
+  background-color: var(--clr-dark);
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: solid 0.15rem #141414;
+}
+.fa-solid {
+  text-decoration: none;
+  display: non;
+}
+@media screen and (max-width: 500px) {
+  .nav {
+  visibility: hidden;
+  width: 0;
+  height: 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  }
+
+}

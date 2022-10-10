@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTZO_studio</title>
+    <link rel="icon" href="/img/OTZdark.png" />
+     <link rel="stylesheet" href="style.css"> 
+    <script src="https://kit.fontawesome.com/c3727654c3.js" crossorigin="anonymous"></script>
+    <script src="darkmode.js" defer></script>
+    <script src="modal.js" defer></script>
+</head>
+<body>
+     <div id="modal" class="display-none">
+      <div class="form-container">
+        <button class="close" onclick="hideModal()"></button>
+        <form autocomplete="on">
+          <div class="formin">
+            <h1>formulář</h1>
+            <div class="form-row-mul">
+              <div class="form-input">
+                <label for="jmeno">Jméno a Přijmění:</label>
+                <input type="text" id="jmeno" name="jmeno" required />
+              </div>
+              <div class="form-input">
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required />
+              </div>
+            </div>
+            <div  class="form-row-mul">
+              <div class="form-input">
+                <input
+                  id="file"
+                  type="file"
+                  name="file"
+                  accept=".doc, .docx, .pdf"
+                  class="hidden"
+                />
+                <label for="file" class="form-label">nahrát přílohu</label>
+              </div>
+              <div class="form-input">
+                <select
+                  value="Vytvoření nových webových stránek"
+                  name="Vyberte, čeho se dotaz týká:"
+                  required
+                >
+                  <option value="Vytvoření nových webových stránek">
+                    Vytvoření nových webových stránek
+                  </option>
+                  <option value="Úpráva již vytvořených webových stránek">
+                    Úpráva již vytvořených webových stránek
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row-single">
+              <span>
+                <input id="accept" type="checkbox" required />
+              </span>
+
+              <label for="accept" class="form-label"
+                >Souhlasím se zpracováním osobních údajů<br />pro marketingové
+                účely
+              </label>
+            </div>
+            <div class="form-row-single">
+              <button class="button" href="">Odeslat</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="telo">
+
+        <nav>
+            <a href="index.html">
+                <img class="logo" src="/img/OTZ.png" alt="logo"
+            title="logo">
+            </a>
+            <ul>
+                <div class="slozky">
+                    <li class="slozka"><a href="indexkontakt.html"> Kontakt </a></li>
+                    <li class="slozka"><a href="indexinformace.html">Informace</a></li>
+                    <li class="slozka"><a href="indexcenik.html">Ceník</a></li>
+                    <li class="slozka"><a href="indexonas.html">O nás</a></li>
+                    <input id="dark-mode-toggle" class="customebutton" type="checkbox" >
+                </div>
+            </ul>
+        </nav>
+            <br>
+        <div id="imageAndText">
+        <img id="laptopfoto" src="/img/photo (1).png" alt="photo.in.menus" >
+        <div class="text-con">
+            <h1>Tvorba webů na míru</h1>
+            <p>Pokud máte zájem o webovou stránku vyplně tento formulář <br> a ostatní nechejte na nás</p>
+            <button onclick="showModal()" href="indexform.html">vytvořit</button>
+            </div>
+            <div>
+                <p>
+                    
+                </p>
+            </div>
+    </div>
+        <div class="outrow"> 
+            <i class="fa fa-phone" aria-hidden="true"></i> +420 705 005 815
+            <br>
+            <br>
+            <i class="fa fa-phone" aria-hidden="true"></i> +420 720 993 875
+            <p>Copyright © OTZO_studio, s. r. o. 2022</p>
+        </div>
+</body>
+</html>
+
